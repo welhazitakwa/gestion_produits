@@ -8,6 +8,8 @@ import { LayoutComponent } from './admin/layout/layout.component';
 import { LandingComponent } from './client/landing/landing.component';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
+import { ProduitsComponent } from './admin/produits/produits.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SidebarComponent } from './admin/sidebar/sidebar.component';
     LoginComponent,
     LayoutComponent,
     LandingComponent,
-    SidebarComponent
+    SidebarComponent,
+    CategoriesComponent,
+    ProduitsComponent
   ],
   imports: [
     BrowserModule,
