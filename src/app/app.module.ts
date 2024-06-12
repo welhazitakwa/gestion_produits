@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { ProduitsComponent } from './admin/produits/produits.component';
+import { CategorieProduitComponent } from './client/categorie-produit/categorie-produit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { ProduitsComponent } from './admin/produits/produits.component';
     LandingComponent,
     SidebarComponent,
     CategoriesComponent,
-    ProduitsComponent
+    ProduitsComponent,
+    CategorieProduitComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
