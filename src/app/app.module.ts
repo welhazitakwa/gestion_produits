@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './admin/login/login.component';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { LandingComponent } from './client/landing/landing.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { ProduitsComponent } from './admin/produits/produits.component';
@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddEditCatComponent } from './admin/add-edit-cat/add-edit-cat.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-
+import {MatFormFieldModule } from '@angular/material/form-field'
+import {MatInputModule } from '@angular/material/input'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,9 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

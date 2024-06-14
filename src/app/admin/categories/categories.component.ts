@@ -12,7 +12,9 @@ export class CategoriesComponent {
   constructor (private dialog: MatDialog) {}
 
   openAddEditCatForm(){
-    this.dialog.open(AddEditCatComponent) ;
+    this.dialog.open(AddEditCatComponent, {
+      width: '550px',
+    });
   }
 
 }
