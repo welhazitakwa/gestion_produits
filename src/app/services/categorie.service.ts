@@ -11,4 +11,7 @@ export class CategorieService {
   addCategorie(data: any ) : Observable<any> {
     return this.http.post('http://localhost:8081/categories' , data);
   }
+  getCategories() : Observable<any> {
+    return this.http.get('http://localhost:8081/categories');
+  }
 }

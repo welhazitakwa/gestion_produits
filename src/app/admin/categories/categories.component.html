@@ -146,7 +146,7 @@
                      
                         <table class="table table-hover table-nowrap">
                             <thead class="thead-light">
-                                <tr>
+                                <tr >
                                  
                                     <th scope="col">Nom</th>
                                     <th scope="col">Description</th>
@@ -156,15 +156,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td >
-                                       nom 
-                                    </td>
-                                    <td>
-eszefhe fnuhuosdk ujnhfoshkmv ojkefisdf iojfngo odfnsdjmsdj                                     </td>
-                                    <td>
-                                       15/07/2024
-                                    </td>
+                                <tr *ngFor="let categorie of getData">
+                                    <td > {{categorie.nom}}  </td>
+                                    <td> {{categorie.description}}  </td>
+                                    <td> {{categorie.dateAjout | date}}  </td>
+                                    
                                    
                                    
                                     <td  style="text-align: center;"  >
