@@ -1,11 +1,29 @@
-<h1 mat-dialog-title>Formulaire des Catégories</h1>
+<h1 mat-dialog-title>Formulaire des Produits</h1>
 <form  [formGroup]="prodForm" (ngSubmit)="onFormSubmit()">
 <div mat-dialog-content>
-  <mat-form-field appearance="fill">
+  <div class="NI" >
+
+    <mat-form-field appearance="fill" style="margin-right: 10px;">
     <mat-label> Nom </mat-label>
     <input matInput type="text" formControlName="nom">
   </mat-form-field>
- 
+  <mat-form-field appearance="fill">
+    <mat-label> image </mat-label>
+    <input matInput type="text" formControlName="image">
+  </mat-form-field>
+  </div>
+  <div class="NI" >
+
+    <mat-form-field appearance="fill" style="margin-right: 10px;">
+    <mat-label> Quantité </mat-label>
+    <input matInput type="number" (input)="validatePositiveValue($event)" min="0" formControlName="quantite">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label> Prix </mat-label>
+    <input matInput type="number" (input)="validatePositiveValue($event)" min="0" formControlName="prix" >
+  </mat-form-field>
+  </div>
+  
   <mat-form-field class="example-full-width">
     <mat-label>Description</mat-label>
     <textarea matInput rows="4" formControlName="description"></textarea>
@@ -15,7 +33,5 @@
 <div mat-dialog-actions class="action">
   <button mat-raised-button type="reset"> Annuler </button>
   <button mat-raised-button color="primary" type="submit" > {{ data ? ' Modifier' : "S'auvegarder"}} </button>
-  <!-- <button mat-button mat-dialog-close>Annuler</button>
-  <button mat-button [mat-dialog-close]="true">Sauvegarder</button> -->
 </div>
 </form>

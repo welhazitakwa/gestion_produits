@@ -3,7 +3,7 @@ import { MatDialog, MatDialogActions } from '@angular/material/dialog';
 import { AddEditCatComponent } from '../add-edit-cat/add-edit-cat.component';
 import { CategorieService } from 'src/app/services/categorie.service';
 
-@Component({
+@Component({ 
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css'],
@@ -43,13 +43,16 @@ export class CategoriesComponent implements OnInit {
     });
   }
   deleteCategorie(id: number) {
-    this.categorieService.deleteCategorie(id).subscribe({
-      next: (res) => {
-        alert('Categorie supprimé avec succès !');
-        this.getCategoriesList();
-      },
-      error: console.log,
-    });
+
+
+    
+    // this.categorieService.deleteCategorie(id).subscribe({
+    //   next: (res) => {
+    //     alert('Categorie supprimé avec succès !');
+    //     this.getCategoriesList();
+    //   },
+    //   error: console.log,
+    // });
   }
   openEditCatForm( data : any ) {
     const dialogRef = this.dialog.open(AddEditCatComponent, {
@@ -64,5 +67,5 @@ export class CategoriesComponent implements OnInit {
         },
         error: console.log,
       });
-  }
+  } 
 }

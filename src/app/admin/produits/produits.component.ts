@@ -57,7 +57,7 @@ export class ProduitsComponent implements OnInit {
   openEditCatForm(data: any) {
     const dialogRef = this.dialog.open(AddEditProduitComponent, {
       data,
-      width: '550px',
+      width: '650px',
     });
     dialogRef.afterClosed().subscribe({
       next: (val) => {

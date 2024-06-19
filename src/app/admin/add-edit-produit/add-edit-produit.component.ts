@@ -19,38 +19,46 @@ export class AddEditProduitComponent {
   ) {
     this.prodForm = fb.group({
       nom: '',
+      image : '',
+      prix : 0,
+      quantite : 0,
       description: '',
     });
   }
   ngOnInit(): void {
     this.prodForm.patchValue(this.data);
   }
+  validatePositiveValue(event: any): void {
+    if (event.target.value < 0) {
+      event.target.value = 0;
+    }
+  }
 
   onFormSubmit() {
     if (this.prodForm.valid) {
       // console.log(this.prodForm.value)
       if (this.data) {
-        // this.produitService
-        //   .editCategorie(this.data.id, this.prodForm.value)
-        //   .subscribe({
-        //     next: (val: any) => {
-        //       alert('La categorie était modifié avec succès');
-        //       this.diagRef.close(true);
-        //     },
-        //     error: (err: any) => {
-        //       console.error(err);
-        //     },
-        //   });
+        this.produitService
+          .editProduit(this.data.id, this.prodForm.value)
+          .subscribe({
+            next: (val: any) => {
+              alert('Le produit était modifié avec succès');
+              this.diagRef.close(true);
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
+          });
       } else {
-    //     this.produitService.addCategorie(this.prodForm.value).subscribe({
-    //       next: (val: any) => {
-    //         alert('La categorie était envoyé avec succès');
-    //         this.diagRef.close(true);
-    //       },
-    //       error: (err: any) => {
-    //         console.error(err);
-    //       },
-    //     });
+            this.produitService.addProduit(this.prodForm.value).subscribe({
+              next: (val: any) => {
+                alert('Le produit était ajouté avec succès');
+                this.diagRef.close(true);
+              },
+              error: (err: any) => {
+                console.error(err);
+              },
+            });
       }
     }
   }
