@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Formulaire des Catégories</h1>
+<form  [formGroup]="catForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label> Nom </mat-label>
+    <input matInput type="text" formControlName="nom">
+  </mat-form-field>
+ 
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput rows="4" formControlName="description"></textarea>
+  </mat-form-field>
+ 
+</div>
+<div mat-dialog-actions class="action">
+  <button mat-raised-button type="reset"> Annuler </button>
+  <button mat-raised-button color="primary" type="submit" > {{ data ? ' Modifier' : "S'auvegarder"}} </button>
+  <!-- <button mat-button mat-dialog-close>Annuler</button>
+  <button mat-button [mat-dialog-close]="true">Sauvegarder</button> -->
+</div>
+</form>
