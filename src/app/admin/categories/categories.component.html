@@ -150,7 +150,7 @@
                                  
                                     <th scope="col">Nom</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Date d'ajout</th>
+                                    <th scope="col">Derniére modification</th>
                                     <th style="text-align: center;" scope="col">Actions</th>
                                     <th></th>
                                 </tr>
@@ -164,7 +164,7 @@
                                    
                                    
                                     <td  style="text-align: center;"  >
-                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"  (click)="openEditCatForm( categorie)">
                                               <i class="bi bi-pencil"></i>
                                         </button>
                                         <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"   (click)="deleteCategorie(categorie.id)">

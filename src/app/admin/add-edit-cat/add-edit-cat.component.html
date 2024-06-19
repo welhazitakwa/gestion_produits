@@ -14,7 +14,7 @@
 </div>
 <div mat-dialog-actions class="action">
   <button mat-raised-button type="reset"> Annuler </button>
-  <button mat-raised-button color="primary" type="submit" > S'auvegarder </button>
+  <button mat-raised-button color="primary" type="submit" > {{ data ? ' Modifier' : "S'auvegarder"}} </button>
   <!-- <button mat-button mat-dialog-close>Annuler</button>
   <button mat-button [mat-dialog-close]="true">Sauvegarder</button> -->
 </div>
