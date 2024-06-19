@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule } from '@angular/material/form-field'
 import {MatInputModule } from '@angular/material/input'
 import { HttpClientModule } from '@angular/common/http';
+import { AddEditProduitComponent } from './admin/add-edit-produit/add-edit-produit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProduitsComponent,
     CategorieProduitComponent,
     AddEditCatComponent,
+    AddEditProduitComponent,
   ],
   imports: [
     BrowserModule,
