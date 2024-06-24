@@ -18,6 +18,8 @@ import {MatFormFieldModule } from '@angular/material/form-field'
 import {MatInputModule } from '@angular/material/input'
 import { HttpClientModule } from '@angular/common/http';
 import { AddEditProduitComponent } from './admin/add-edit-produit/add-edit-produit.component';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { AddEditProduitComponent } from './admin/add-edit-produit/add-edit-produ
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -43,16 +43,13 @@ export class CategoriesComponent implements OnInit {
     });
   }
   deleteCategorie(id: number) {
-
-
-    
-    // this.categorieService.deleteCategorie(id).subscribe({
-    //   next: (res) => {
-    //     alert('Categorie supprimé avec succès !');
-    //     this.getCategoriesList();
-    //   },
-    //   error: console.log,
-    // });
+    this.categorieService.deleteCategorie(id).subscribe({
+      next: (res) => {
+        alert('Categorie supprimé avec succès !');
+        this.getCategoriesList();
+      },
+      error: console.log,
+    });
   }
   openEditCatForm( data : any ) {
     const dialogRef = this.dialog.open(AddEditCatComponent, {

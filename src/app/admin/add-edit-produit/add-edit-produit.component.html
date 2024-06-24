@@ -23,7 +23,18 @@
     <input matInput type="number" (input)="validatePositiveValue($event)" min="0" formControlName="prix" >
   </mat-form-field>
   </div>
-  
+
+
+  <mat-form-field  >
+  <mat-label>Categorie</mat-label>
+  <div formGroupName="categorie">
+  <mat-select formControlName="id" >
+<mat-option *ngFor="let cat of getData" [value]="cat.id | json">{{ cat.nom | json }} {{ cat.id | json }}</mat-option>
+  </mat-select>
+  </div>
+</mat-form-field>
+
+
   <mat-form-field class="example-full-width">
     <mat-label>Description</mat-label>
     <textarea matInput rows="4" formControlName="description"></textarea>
