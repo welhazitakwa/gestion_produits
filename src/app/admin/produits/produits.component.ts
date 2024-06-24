@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProduitService } from 'src/app/services/produit.service';
 import { AddEditProduitComponent } from '../add-edit-produit/add-edit-produit.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produits',
@@ -46,12 +47,31 @@ export class ProduitsComponent implements OnInit {
     });
   }
   deleteProduit(id: number) {
-    this.produitService.deleteProduit(id).subscribe({
-      next: (res) => {
-        alert('Produit supprimé avec succès !');
-        this.getProduitsList();
-      },
-      error: console.log,
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: 'Ce produit va être supprimé définitivement!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimez-le!',
+      cancelButtonText: 'Annuler',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.produitService.deleteProduit(id).subscribe({
+          next: (res) => {
+            Swal.fire('Supprimé!', 'Votre produit a été supprimé.', 'success');
+            this.getProduitsList();
+          },
+          error: (err) => {
+            Swal.fire(
+              'Erreur!',
+              'Une erreur est survenue lors de la suppression.',
+              'error'
+            );
+          },
+        });
+      }
     });
   }
   openEditCatForm(data: any) {
