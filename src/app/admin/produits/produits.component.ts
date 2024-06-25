@@ -14,9 +14,6 @@ export class ProduitsComponent implements OnInit {
   @ViewChild('productTableBody')
   productTableBodyRef!: ElementRef  <HTMLTableSectionElement>;
 
-  filteredProduitsList: any[] = [];
-  searchText: string = '';
-
   constructor(
     private router: Router,
     private dialog: MatDialog,

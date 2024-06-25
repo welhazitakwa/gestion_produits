@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogActions } from '@angular/material/dialog';
 import { AddEditCatComponent } from '../add-edit-cat/add-edit-cat.component';
 import { CategorieService } from 'src/app/services/categorie.service';
@@ -10,6 +10,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit {
+  @ViewChild('productTableBody')
+  productTableBodyRef!: ElementRef<HTMLTableSectionElement>;
+
   // displayedColumns: string[] = ['nom', 'description', 'dateAjout', 'produits'];
   getData: any;
   constructor(
@@ -88,5 +91,34 @@ export class CategoriesComponent implements OnInit {
       },
       error: console.log,
     });
+  }
+
+  ngAfterViewInit() {
+    // Exécuter filterTable une fois que la vue est initialisée pour éviter les erreurs de 'null'
+    this.filterTable('');
+  }
+
+  filterTable(searchText: string) {
+    searchText = searchText.toLowerCase().trim();
+    const tableBody = this.productTableBodyRef.nativeElement;
+
+    if (tableBody) {
+      const rows = tableBody.getElementsByTagName('tr');
+
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let showRow = false;
+
+        for (let j = 0; j < cells.length; j++) {
+          const cellContent = cells[j].textContent || cells[j].innerText;
+          if (cellContent.toLowerCase().indexOf(searchText) > -1) {
+            showRow = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = showRow ? '' : 'none';
+      }
+    }
   }
 }
