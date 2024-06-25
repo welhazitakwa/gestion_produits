@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProduitService } from 'src/app/services/produit.service';
@@ -11,6 +11,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./produits.component.css'],
 })
 export class ProduitsComponent implements OnInit {
+  @ViewChild('productTableBody')
+  productTableBodyRef!: ElementRef  <HTMLTableSectionElement>;
+
+  filteredProduitsList: any[] = [];
+  searchText: string = '';
+
   constructor(
     private router: Router,
     private dialog: MatDialog,
@@ -18,13 +24,15 @@ export class ProduitsComponent implements OnInit {
   ) {}
   logoImage = '/public/logo.jpg';
 
-  getData: any;
+  getData: any[] = [];
 
   ngOnInit(): void {
     this.getProduitsList();
   }
   openAddEditProdForm() {
-    const dialogRef = this.dialog.open(AddEditProduitComponent, { width: '550px' });
+    const dialogRef = this.dialog.open(AddEditProduitComponent, {
+      width: '550px',
+    });
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
@@ -87,5 +95,45 @@ export class ProduitsComponent implements OnInit {
       },
       error: console.log,
     });
+  }
+  // ---------------------------------------------
+  // filterTable(event: any) {
+  //   const searchText = event?.target?.value?.toLowerCase() || '';
+  //   this.getData = this.getData.filter(
+  //     (produit) =>
+  //       produit.nom.toLowerCase().includes(searchText) ||
+  //       produit.description.toLowerCase().includes(searchText)
+  //     // Ajoutez d'autres champs pour la recherche si nécessaire
+  //   );
+
+  // }
+
+  ngAfterViewInit() {
+    // Exécuter filterTable une fois que la vue est initialisée pour éviter les erreurs de 'null'
+    this.filterTable('');
+  }
+
+  filterTable(searchText: string) {
+    searchText = searchText.toLowerCase().trim();
+    const tableBody = this.productTableBodyRef.nativeElement;
+
+    if (tableBody) {
+      const rows = tableBody.getElementsByTagName('tr');
+
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let showRow = false;
+
+        for (let j = 0; j < cells.length; j++) {
+          const cellContent = cells[j].textContent || cells[j].innerText;
+          if (cellContent.toLowerCase().indexOf(searchText) > -1) {
+            showRow = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = showRow ? '' : 'none';
+      }
+    }
   }
 }
