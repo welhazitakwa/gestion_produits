@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CategorieService } from 'src/app/services/categorie.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-edit-cat',
@@ -33,21 +34,45 @@ export class AddEditCatComponent implements OnInit {
      if (this.data) {
       this.categorieService.editCategorie(this.data.id  ,this.catForm.value).subscribe({
         next: (val: any) => {
-          alert('La categorie était modifié avec succès');
-          this.diagRef.close(true);
+            Swal.fire({
+              icon: 'success',
+              title: 'Succès',
+              text: 'La Categorie été modifié avec succès !',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.diagRef.close(true); // Assurez-vous d'avoir une référence correcte à votre dialogue (diagRef)
+              }
+            });
+           this.diagRef.close(true);
         },
         error: (err: any) => {
-          console.error(err);
+           Swal.fire(
+             'Erreur!',
+             'Une erreur est survenue lors de la modification.',
+             'error'
+           );
         },
       });
      } else {
         this.categorieService.addCategorie(this.catForm.value).subscribe({
           next: (val: any) => {
-            alert('La categorie était envoyé avec succès');
+             Swal.fire({
+               icon: 'success',
+               title: 'Succès',
+               text: 'La Catégorie été ajouté avec succès!',
+             }).then((result) => {
+               if (result.isConfirmed) {
+                 this.diagRef.close(true); 
+               }
+             });
             this.diagRef.close(true);
           },
           error: (err: any) => {
-            console.error(err);
+            Swal.fire(
+              'Erreur!',
+              "Une erreur est survenue lors de l'ajout .",
+              'error'
+            );
           },
         });
      }
