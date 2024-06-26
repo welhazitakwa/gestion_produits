@@ -180,7 +180,7 @@
                                     </td>
                                     <td> {{produit.dateAjout | date }} </td>
                                     <td>{{ produit.prix}} dt</td>
-                                    <td> Art</td>
+                                    <td> {{ produit.categorieNom }} </td> 
                                     <td  style="text-align: center;"  >
                                          <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover"  (click)="openEditCatForm(produit)">
                                               <i class="bi bi-pencil"></i>

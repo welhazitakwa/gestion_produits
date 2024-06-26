@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProduitService } from 'src/app/services/produit.service';
 import { AddEditProduitComponent } from '../add-edit-produit/add-edit-produit.component';
 import Swal from 'sweetalert2';
+import { CategorieService } from 'src/app/services/categorie.service';
 
 @Component({
   selector: 'app-produits',
@@ -12,12 +13,13 @@ import Swal from 'sweetalert2';
 })
 export class ProduitsComponent implements OnInit {
   @ViewChild('productTableBody')
-  productTableBodyRef!: ElementRef  <HTMLTableSectionElement>;
+  productTableBodyRef!: ElementRef<HTMLTableSectionElement>;
 
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    private produitService: ProduitService
+    private produitService: ProduitService,
+    private categorieService: CategorieService
   ) {}
   logoImage = '/public/logo.jpg';
 
@@ -39,12 +41,37 @@ export class ProduitsComponent implements OnInit {
       error: console.log,
     });
   }
+  // getProduitsList() {
+  //   this.produitService.getProduits().subscribe({
+  //     next: (res) => {
+  //       // console.log(res);
+  //       this.getData = res;
+  //       console.log(this.getData);
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     },
+  //   });
+  // }
   getProduitsList() {
     this.produitService.getProduits().subscribe({
       next: (res) => {
-        // console.log(res);
         this.getData = res;
         console.log(this.getData);
+        this.getData.forEach((produit) => {
+          this.assignCategorieName(produit); 
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  assignCategorieName(produit: any) {
+    this.produitService.getCategoryById(produit.categorie.id).subscribe({
+      next: (categorie) => {
+        produit.categorieNom = categorie.nom;
       },
       error: (err) => {
         console.log(err);
@@ -104,12 +131,10 @@ export class ProduitsComponent implements OnInit {
   //   );
 
   // }
-
   ngAfterViewInit() {
     // Exécuter filterTable une fois que la vue est initialisée pour éviter les erreurs de 'null'
     this.filterTable('');
   }
-
   filterTable(searchText: string) {
     searchText = searchText.toLowerCase().trim();
     const tableBody = this.productTableBodyRef.nativeElement;
@@ -132,5 +157,14 @@ export class ProduitsComponent implements OnInit {
         rows[i].style.display = showRow ? '' : 'none';
       }
     }
+  }
+
+  getCategoryById(id: number) {
+    this.produitService.getCategoryById(id).subscribe({
+      next: (res) => {
+        this.getProduitsList();
+      },
+      error: (err) => {},
+    });
   }
 }
