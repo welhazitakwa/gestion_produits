@@ -19,6 +19,7 @@ import {MatInputModule } from '@angular/material/input'
 import { HttpClientModule } from '@angular/common/http';
 import { AddEditProduitComponent } from './admin/add-edit-produit/add-edit-produit.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-categorie.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
     CategorieProduitComponent,
     AddEditCatComponent,
     AddEditProduitComponent,
+    ProdByCategorieComponent,
   ],
   imports: [
     BrowserModule,

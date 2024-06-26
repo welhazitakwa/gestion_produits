@@ -3,6 +3,8 @@ import { MatDialog, MatDialogActions } from '@angular/material/dialog';
 import { AddEditCatComponent } from '../add-edit-cat/add-edit-cat.component';
 import { CategorieService } from 'src/app/services/categorie.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-categories',
@@ -14,10 +16,13 @@ export class CategoriesComponent implements OnInit {
   productTableBodyRef!: ElementRef<HTMLTableSectionElement>;
 
   // displayedColumns: string[] = ['nom', 'description', 'dateAjout', 'produits'];
-  getData: any;
+  getData: any[] = [];
+  prodByCat: any;
   constructor(
     private dialog: MatDialog,
-    private categorieService: CategorieService
+    private categorieService: CategorieService,
+    private router: Router,
+    private shared: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -121,4 +126,24 @@ export class CategoriesComponent implements OnInit {
       }
     }
   }
+  getProductsOfCateory(id: number) {
+    this.categorieService.getProductsOfCategorie(id).subscribe({
+      next: (res) => {
+        this.prodByCat = res;
+        console.log('proooduct byyy categoorriiieeeeee ');
+        console.log(this.prodByCat);
+        this.shared.setMessage(this.prodByCat);
+        this.router.navigateByUrl(`/prodById`);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+  // navProdByCat(id: number) {
+  //   this.prodByCat = this.getProductsOfCateory(id);
+
+  //   console.log(this.prodByCat);
+  //   //this.router.navigateByUrl(`/prodById`); // Naviguer vers une route avec l'ID de la catégorie
+  // }
 }
