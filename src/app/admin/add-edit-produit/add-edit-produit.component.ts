@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { ProduitService } from 'src/app/services/produit.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-edit-produit',
@@ -62,21 +63,45 @@ export class AddEditProduitComponent implements OnInit {
           .editProduit(this.data.id, this.prodForm.value)
           .subscribe({
             next: (val: any) => {
-              alert('Le produit était modifié avec succès');
-              this.diagRef.close(true);
+               Swal.fire({
+              icon: 'success',
+              title: 'Succès',
+              text: 'Le produit a été modifié avec succès!',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.diagRef.close(true); // Assurez-vous d'avoir une référence correcte à votre dialogue (diagRef)
+              }
+            });
+            this.diagRef.close(true);
             },
             error: (err: any) => {
-              console.error(err);
+              Swal.fire(
+                'Erreur!',
+                'Une erreur est survenue lors de la modification.',
+                'error'
+              );
             },
           });
       } else {
         this.produitService.addProduit(this.prodForm.value).subscribe({
           next: (val: any) => {
-            alert('Le produit était ajouté avec succès');
+            Swal.fire({
+              icon: 'success',
+              title: 'Succès',
+              text: 'Le produit a été ajouté avec succès!',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.diagRef.close(true); // Assurez-vous d'avoir une référence correcte à votre dialogue (diagRef)
+              }
+            });
             this.diagRef.close(true);
           },
           error: (err: any) => {
-            console.error(err);
+            Swal.fire(
+              'Erreur!',
+              "Une erreur est survenue lors de la l'ajout.",
+              'error'
+            );
           },
         });
       }

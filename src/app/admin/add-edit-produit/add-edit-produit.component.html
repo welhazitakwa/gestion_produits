@@ -29,7 +29,7 @@
   <mat-label>Categorie</mat-label>
   <div formGroupName="categorie">
   <mat-select formControlName="id" >
-<mat-option *ngFor="let cat of getData" [value]="cat.id | json">{{ cat.nom | json }} {{ cat.id | json }}</mat-option>
+<mat-option *ngFor="let cat of getData" [value]="cat.id | json">{{ cat.nom  }}</mat-option>
   </mat-select>
   </div>
 </mat-form-field>
