@@ -5,6 +5,7 @@ import { LandingComponent } from './client/landing/landing.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ProduitsComponent } from './admin/produits/produits.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
+import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-categorie.component';
 
 const routes: Routes = [
   { path: 'layout', component: LayoutComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'produits', component: ProduitsComponent },
   { path: 'categories', component: CategoriesComponent },
+  { path: 'prodById', component: ProdByCategorieComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

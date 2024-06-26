@@ -57,9 +57,8 @@ export class ProduitsComponent implements OnInit {
     this.produitService.getProduits().subscribe({
       next: (res) => {
         this.getData = res;
-        console.log(this.getData);
         this.getData.forEach((produit) => {
-          this.assignCategorieName(produit); 
+          this.assignCategorieName(produit);
         });
       },
       error: (err) => {
@@ -120,17 +119,6 @@ export class ProduitsComponent implements OnInit {
       error: console.log,
     });
   }
-  // ---------------------------------------------
-  // filterTable(event: any) {
-  //   const searchText = event?.target?.value?.toLowerCase() || '';
-  //   this.getData = this.getData.filter(
-  //     (produit) =>
-  //       produit.nom.toLowerCase().includes(searchText) ||
-  //       produit.description.toLowerCase().includes(searchText)
-  //     // Ajoutez d'autres champs pour la recherche si nécessaire
-  //   );
-
-  // }
   ngAfterViewInit() {
     // Exécuter filterTable une fois que la vue est initialisée pour éviter les erreurs de 'null'
     this.filterTable('');
@@ -159,12 +147,4 @@ export class ProduitsComponent implements OnInit {
     }
   }
 
-  getCategoryById(id: number) {
-    this.produitService.getCategoryById(id).subscribe({
-      next: (res) => {
-        this.getProduitsList();
-      },
-      error: (err) => {},
-    });
-  }
 }
