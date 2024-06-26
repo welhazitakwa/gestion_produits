@@ -130,9 +130,9 @@ export class CategoriesComponent implements OnInit {
     this.categorieService.getProductsOfCategorie(id).subscribe({
       next: (res) => {
         this.prodByCat = res;
-        console.log('proooduct byyy categoorriiieeeeee ');
         console.log(this.prodByCat);
         this.shared.setMessage(this.prodByCat);
+        this.shared.setIdcat(id);
         this.router.navigateByUrl(`/prodById`);
       },
       error: (err) => {
@@ -140,6 +140,7 @@ export class CategoriesComponent implements OnInit {
       },
     });
   }
+  
   // navProdByCat(id: number) {
   //   this.prodByCat = this.getProductsOfCateory(id);
 
