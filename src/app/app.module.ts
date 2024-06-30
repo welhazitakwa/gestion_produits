@@ -21,6 +21,7 @@ import { AddEditProduitComponent } from './admin/add-edit-produit/add-edit-produ
 import { MatSelectModule } from '@angular/material/select';
 import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-categorie.component';
 import { HeaderComponent } from './client/header/header.component';
+import { FooterComponent } from './client/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HeaderComponent } from './client/header/header.component';
     AddEditProduitComponent,
     ProdByCategorieComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
