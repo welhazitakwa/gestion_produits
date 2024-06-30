@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   constructor(private router: Router) {}
+  imageUrl = 'assets/images/logoWithoutBg.png';
+
   navProd() {
     this.router.navigateByUrl('/produitsClt');
   }
