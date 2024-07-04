@@ -17,8 +17,13 @@
 							</p>
 							<p class="excerpt"> {{categorie.description}}</p>
 							<div 	style="text-align: right;" >
-										<a href="single-news.html" class="read-more-btn"> Produits Relatives 
-											<i class="fas fa-angle-right"></i></a>
+							
+								<button type="button" 
+								class="read-more-btn btn btn-sm btn-square btn-neutral text-danger-hover" 
+								style="font-weight: bold;"  (click)="getProductsOfCateory(categorie.id)">  Produits Relatives <i class="fas fa-angle-right"></i>
+                                        </button>
+										<a href="single-news.html" > 
+											</a>
 							</div>
 					
 						</div>

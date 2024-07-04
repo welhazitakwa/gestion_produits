@@ -22,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-categorie.component';
 import { HeaderComponent } from './client/header/header.component';
 import { FooterComponent } from './client/footer/footer.component';
+import { ProduitCategoriesClientComponent } from './client/produit-categories-client/produit-categories-client.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FooterComponent } from './client/footer/footer.component';
     ProdByCategorieComponent,
     HeaderComponent,
     FooterComponent,
+    ProduitCategoriesClientComponent,
   ],
   imports: [
     BrowserModule,
