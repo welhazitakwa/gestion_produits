@@ -1,1 +1,31 @@
-<p>produit-categories-client works!</p>
+<app-header></app-header>
+	<div class="breadcrumb-section"></div>
+
+
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+
+
+			<div class="row product-lists"  >
+				<div class="col-lg-4 col-md-6 text-center strawberry"  *ngFor="let produit of prodByCat">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html">
+        <img src="assets/img/products/product-img-1.jpg" alt=""></a>
+						</div>
+       <!--  -->
+      <span  [ngStyle]="{ color: produit.quantite === 0 ? 'red' : (produit.quantite >= 10 ? 'green' : 'orange') }" >
+  {{ produit.quantite === 0 ? 'Épuisé' : (produit.quantite >= 10 ? 'Disponible' : 'Presque épuisé') }}
+</span>
+      <!--  -->
+						<h3> {{produit.nom}} </h3>
+						<p class="product-price"><span> {{ produit.description}}  </span> {{ produit.prix}} dt </p>
+     
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ <br> <br> <br><br><br><br> <br>
+	<app-footer></app-footer>
