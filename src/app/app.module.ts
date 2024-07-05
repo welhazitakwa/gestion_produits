@@ -20,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddEditProduitComponent } from './admin/add-edit-produit/add-edit-produit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-categorie.component';
+import { HeaderComponent } from './client/header/header.component';
+import { FooterComponent } from './client/footer/footer.component';
+import { ProduitCategoriesClientComponent } from './client/produit-categories-client/produit-categories-client.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-cate
     AddEditCatComponent,
     AddEditProduitComponent,
     ProdByCategorieComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProduitCategoriesClientComponent,
   ],
   imports: [
     BrowserModule,

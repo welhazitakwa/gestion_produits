@@ -1,1 +1,39 @@
-<p>categorie-produit works!</p>
+<app-header></app-header>
+	<div class="breadcrumb-section">
+		
+	</div> <br><br><br><br>
+ <h1 style="text-align: center; color: orange; font-weight: bold;" > NOS CATEGORIES</h1>
+	<div class="latest-news mt-150 mb-150">
+		
+		<div class="container">
+			<div class="row">
+				<div  *ngFor="let categorie of getData" class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<div class="news-text-box"> 
+						 	<h1 style="text-align: center;"> {{categorie.nom}} </h1>
+
+							<p class="blog-meta">
+								<span class="date"><i class="fas fa-calendar"></i> {{categorie.dateAjout | date}} </span>
+							</p>
+							<p class="excerpt"> {{categorie.description}}</p>
+							<div 	style="text-align: right;" >
+							
+								<button type="button" 
+								class="read-more-btn btn btn-sm btn-square btn-neutral text-danger-hover" 
+								style="font-weight: bold;"  (click)="getProductsOfCateory(categorie.id)">  Produits Relatives <i class="fas fa-angle-right"></i>
+                                        </button>
+										<a href="single-news.html" > 
+											</a>
+							</div>
+					
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+ <br> <br> <br><br><br><br> <br>
+	<app-footer></app-footer>
