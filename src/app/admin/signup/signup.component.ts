@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css'],
 })
-export class LoginComponent {
+export class SignupComponent {
   loginObj: any = {
     username: '',
     password: '',
@@ -30,8 +30,6 @@ export class LoginComponent {
   }
 
   onSignup() {
-          this.router.navigateByUrl('/signup');
-
+    this.router.navigateByUrl('/signup');
   }
-
 }

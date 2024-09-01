@@ -23,6 +23,9 @@ import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-cate
 import { HeaderComponent } from './client/header/header.component';
 import { FooterComponent } from './client/footer/footer.component';
 import { ProduitCategoriesClientComponent } from './client/produit-categories-client/produit-categories-client.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { ProduitCategoriesClientComponent } from './client/produit-categories-cl
     HeaderComponent,
     FooterComponent,
     ProduitCategoriesClientComponent,
+    SignupComponent,
+    ProfileComponent,
+    UpdateuserComponent,
   ],
   imports: [
     BrowserModule,
