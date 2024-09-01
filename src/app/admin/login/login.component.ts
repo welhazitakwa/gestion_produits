@@ -38,6 +38,7 @@ export class LoginComponent {
           this.router.navigate(['/landing']);
         }
       } else {
+        // this.showError("données invalides !");
         this.showError(response.message);
       }
     } catch (error: any) {
@@ -49,7 +50,7 @@ export class LoginComponent {
     this.errorMessage = mess;
     setTimeout(() => {
       this.errorMessage = '';
-    }, 3000);
+    }, 6000);
   }
 
   onSignup() {
