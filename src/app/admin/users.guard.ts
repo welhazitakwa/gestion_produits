@@ -1,15 +1,21 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivateFn, Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
+import { inject } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UsersGuard implements CanActivate {
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+export const usersGuard: CanActivateFn = (route, state) => {
+  if (inject(UsersService).isAuthenticated()) {
     return true;
+  } else {
+    inject(Router).navigate(['/login']);
+    return false;
   }
-  
-}
+};
+
+export const adminGuard: CanActivateFn = (route, state) => {
+  if (inject(UsersService).isAdmin()) {
+    return true;
+  } else {
+    inject(Router).navigate(['/login']);
+    return false;
+  }
+};

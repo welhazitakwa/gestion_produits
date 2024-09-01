@@ -9,9 +9,11 @@ import { ProdByCategorieComponent } from './admin/prod-by-categorie/prod-by-cate
 import { CategorieProduitComponent } from './client/categorie-produit/categorie-produit.component';
 import { ProduitCategoriesClientComponent } from './client/produit-categories-client/produit-categories-client.component';
 import { SignupComponent } from './admin/signup/signup.component';
+import { adminGuard, usersGuard } from './admin/users.guard';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
 
 const routes: Routes = [
-  { path: 'layout', component: LayoutComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'produits', component: ProduitsComponent },
@@ -19,7 +21,12 @@ const routes: Routes = [
   { path: 'prodById', component: ProdByCategorieComponent },
   { path: 'produitsClt', component: CategorieProduitComponent },
   { path: 'ByCategorie', component: ProduitCategoriesClientComponent },
-  { path: 'signup', component: SignupComponent },
+  // ******************************************************************//
+  { path: 'register', component: SignupComponent, canActivate: [adminGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [usersGuard] },
+  { path: 'update/:id', component: UpdateuserComponent, canActivate: [adminGuard], },
+  { path: 'layout', component: LayoutComponent, canActivate: [adminGuard] },
+  { path: '**', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

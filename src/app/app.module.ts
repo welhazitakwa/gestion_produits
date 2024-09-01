@@ -26,6 +26,9 @@ import { ProduitCategoriesClientComponent } from './client/produit-categories-cl
 import { SignupComponent } from './admin/signup/signup.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
+// 
+// import { provideRouter } from '@angular/router';
+// import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,7 @@ import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatSelectModule,
+    // provideHttpClient,
   ],
   providers: [],
   bootstrap: [AppComponent],

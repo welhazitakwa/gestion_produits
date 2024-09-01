@@ -1,24 +1,18 @@
 
 <body>
-
     <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form>                
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
-            </form>
-        </div>
         <div class="form-container sign-in">
             <form>
-                <h1>Sign In</h1>
-                <br> <br> <br>
-                <span>or use your email password</span>
+                <h1>S'inscrire</h1>
+                <br>
+                <span>Vous devez saisir vos données</span>
                 <input type="email" name="username" [(ngModel)]="loginObj.username" placeholder="Email">
                 <input type="password" name="password" [(ngModel)]="loginObj.password" placeholder="Password">
-                <button type="button" (click)="onLogin()" >Sign In</button>
-                <button type="button" (click)="onSignup()" >Sign Up</button>
+                <button type="button" (click)="onLogin()" >S'inscrire</button> <br>
+                   <a (click)="onSignup()">
+                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                     <u>Se Connecter</u> 
+                    </a> 
             </form>
         </div>
         <div class="toggle-container">

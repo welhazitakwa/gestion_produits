@@ -215,3 +215,15 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+
+    /* button[type="submit"]:hover {
+    background-color: #ffff;
+    } */
+    
+    .error-message {
+    color: #dc3545;
+    font-size: 20px;
+    margin: 10px;
+    text-align: center;
+    }
