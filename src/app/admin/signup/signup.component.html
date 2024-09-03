@@ -2,17 +2,16 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in">
-            <form>
+            <form (submit)="handleSubmit()">
                 <h1>S'inscrire</h1>
-                <br>
-                <span>Vous devez saisir vos données</span>
-                <input type="email" name="username" [(ngModel)]="loginObj.username" placeholder="Email">
-                <input type="password" name="password" [(ngModel)]="loginObj.password" placeholder="Password">
-                <button type="button" (click)="onLogin()" >S'inscrire</button> <br>
-                   <a (click)="onSignup()">
-                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                     <u>Se Connecter</u> 
-                    </a> 
+                    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <input type="text" name="name" [(ngModel)]="formData.name" required placeholder="Nom">
+    <input type="email" name="email" [(ngModel)]="formData.email" required placeholder="Email" >
+    <input  type="password" name="password" [(ngModel)]="formData.password" required  placeholder="Mot De Passe">
+        <input type="text" name="city" [(ngModel)]="formData.city" required  placeholder="Adresse"/>
+        <button type="submit" >S'inscrire</button> <br>
+                  
+        <a (click)="onLogin()">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>Se Connecter</u>  </a> 
             </form>
         </div>
         <div class="toggle-container">

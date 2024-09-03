@@ -28,6 +28,7 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
 import { ProfileuserComponent } from './client/profileuser/profileuser.component';
 import { AdduserComponent } from './admin/adduser/adduser.component';
+import { EditprofileuserComponent } from './client/editprofileuser/editprofileuser.component';
 // 
 // import { provideRouter } from '@angular/router';
 // import { provideHttpClient } from '@angular/common/http';
@@ -53,6 +54,7 @@ import { AdduserComponent } from './admin/adduser/adduser.component';
     UpdateuserComponent,
     ProfileuserComponent,
     AdduserComponent,
+    EditprofileuserComponent,
   ],
   imports: [
     BrowserModule,

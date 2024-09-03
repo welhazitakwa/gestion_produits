@@ -10,8 +10,8 @@
     <p>Email: {{profileInfo?.ourUsers?.email}}</p>
     <p>City: {{profileInfo?.ourUsers?.city}}</p>
     <button 
-    *ngIf ="profileInfo?.ourUsers?.role === 'ADMIN'"
-    (click)="updateProfile(profileInfo?.ourUsers?.id)">Update Profile</button>
+    
+    (click)="updateProfile(profileInfo?.ourUsers?.id)">Modifier Le Profile</button>
 </div>
 
 

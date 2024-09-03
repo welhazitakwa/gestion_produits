@@ -32,7 +32,7 @@ export class ProfileuserComponent implements OnInit {
   }
 
   updateProfile(id: string) {
-    this.router.navigate(['/update', id]);
+    this.router.navigate(['/updateprofileuser', id]);
   }
 
   showError(mess: string) {
