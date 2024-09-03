@@ -30,6 +30,9 @@ export class SidebarComponent implements OnInit {
   navCategories() {
     this.router.navigateByUrl('/categories');
   }
+  profile() {
+    this.router.navigateByUrl('/profile');
+  }
   navDash() {
     this.router.navigateByUrl('/layout');
   }

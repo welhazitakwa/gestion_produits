@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+  selector: 'app-profileuser',
+  templateUrl: './profileuser.component.html',
+  styleUrls: ['./profileuser.component.css'],
 })
-export class ProfileComponent implements OnInit {
-  
+export class ProfileuserComponent implements OnInit {
   constructor(
     private readonly userService: UsersService,
     private readonly router: Router

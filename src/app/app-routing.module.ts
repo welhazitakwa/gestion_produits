@@ -12,6 +12,7 @@ import { SignupComponent } from './admin/signup/signup.component';
 import { adminGuard, usersGuard } from './admin/users.guard';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
+import { ProfileuserComponent } from './client/profileuser/profileuser.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   // ******************************************************************//
   { path: 'register', component: SignupComponent, canActivate: [adminGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [usersGuard] },
-  { path: 'update/:id', component: UpdateuserComponent, canActivate: [adminGuard], },
+  { path: 'profileuser',component: ProfileuserComponent, canActivate: [usersGuard],  },
+  { path: 'update/:id',component: UpdateuserComponent, canActivate: [adminGuard],},
   { path: 'layout', component: LayoutComponent, canActivate: [adminGuard] },
   { path: '**', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
