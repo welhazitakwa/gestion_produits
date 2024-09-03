@@ -13,6 +13,7 @@ import { adminGuard, usersGuard } from './admin/users.guard';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
 import { ProfileuserComponent } from './client/profileuser/profileuser.component';
+import { AdduserComponent } from './admin/adduser/adduser.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'ByCategorie', component: ProduitCategoriesClientComponent },
   // ******************************************************************//
   { path: 'register', component: SignupComponent, canActivate: [adminGuard] },
+  { path: 'adduser', component: AdduserComponent, canActivate: [adminGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [usersGuard] },
   { path: 'profileuser',component: ProfileuserComponent, canActivate: [usersGuard],  },
   { path: 'update/:id',component: UpdateuserComponent, canActivate: [adminGuard],},
